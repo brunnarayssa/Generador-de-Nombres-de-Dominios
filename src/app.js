@@ -1,11 +1,14 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let pronoun = ["El", "Nuestro", "Un", "Este"];
+let adj = ["gran", "super", "genial", "colosal"];
+let noun = ["castor", "animal", "perro", "arbol"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function domainGenerator() {
+  for (let i = 0; i < 4; i++) {
+    // Generar dominios con el prefijo "4geeks"
+    alert("www.4geeks" + pronoun[i] + adj[i] + noun[i] + ".com");
+    alert("www.4geeks" + adj[i] + pronoun[i] + noun[i] + ".com");
+    alert("www.4geeks" + pronoun[i] + noun[i] + adj[i] + ".com");
+  }
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+domainGenerator();
