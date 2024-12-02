@@ -1,14 +1,19 @@
-let pronoun = ["El", "Nuestro", "Un", "Este"];
-let adj = ["gran", "super", "genial", "colosal"];
-let noun = ["castor", "animal", "perro", "arbol"];
+const pronouns = ["the", "our"];
+const adjectives = ["great", "big"];
+const nouns = ["jogger", "racoon"];
+const extensions = [".com", ".net", ".us", ".io"];
 
-function domainGenerator() {
-  for (let i = 0; i < 4; i++) {
-    // Generar dominios con el prefijo "4geeks"
-    alert("www.4geeks" + pronoun[i] + adj[i] + noun[i] + ".com");
-    alert("www.4geeks" + adj[i] + pronoun[i] + noun[i] + ".com");
-    alert("www.4geeks" + pronoun[i] + noun[i] + adj[i] + ".com");
-  }
+function generateRandomDomain() {
+  const pronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  const extension = extensions[Math.floor(Math.random() * extensions.length)];
+  return `${pronoun}${adjective}${noun}${extension}`;
 }
 
-domainGenerator();
+const domainElement = document.getElementById("domain");
+domainElement.textContent = generateRandomDomain();
+
+document.getElementById("generateBtn").addEventListener("click", () => {
+  domainElement.textContent = generateRandomDomain();
+});
